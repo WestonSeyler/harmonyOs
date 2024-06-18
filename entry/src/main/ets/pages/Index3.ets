@@ -1,12 +1,12 @@
-// import Style from './style/style'
-import Vp from './rem/vp'
+import Style from './style/style'
+
 @Entry
 @Component
 struct Index {
   build() {
     Column(){
       // 使用 `Footer` 组件
-      Vp()
+      Footer()
     }
   }
 }
