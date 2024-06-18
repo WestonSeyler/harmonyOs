@@ -14,7 +14,7 @@ struct Index {
       Row(){
         Text('手机号')
         TextInput({text:this.mobile})
-          .onChange((value)=>this.mobile13=value)
+          .onChange((value)=>this.mobile=value)
       }
       Row(){
         Text('验证码')
