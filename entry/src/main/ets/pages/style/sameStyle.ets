@@ -1,16 +1,26 @@
-@Styles function sameStyle() {
-  .backgroundColor(Color.Green)
-  .onClick(() => {
-    this.count++
-  })
-}
+// @Styles function sameStyle(){
+//   .backgroundColor(Color.Gray)
+//   .onClick(()=>{
+//     this.count++
+//   })
+// }
+
 
 @Entry
 @Component
-struct Index {
+export default struct Index {
   @State
   count: number = 10
 
+  @Styles
+  //不需要function 会覆盖全局
+  sameStyle(){
+    .backgroundColor(Color.Pink)
+    .onClick(()=>{
+      this.count++
+    })
+
+  }
   build() {
     Column() {
       Text(this.count.toString())
