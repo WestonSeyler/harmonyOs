@@ -1,12 +1,12 @@
 @Entry
 @Component
-struct Index {
+export default struct Index {
   build() {
     Column(){
       // 导航
       Row(){
         Row(){
-          Image($r('app.media.ic_public_arrow_left'))
+          Image($r('app.media.icon'))
             .width(16)
             .aspectRatio(1)
           // svg 图标可以使用填充颜色
@@ -28,7 +28,7 @@ struct Index {
       .border({ width: { bottom: 0.5 }, color: '#e4e4e4' })
       // 评论
       Row(){
-        Image($r('app.media.ic_public_contacts'))
+        Image($r('app.media.icon'))
           .width(33)
           .margin({ top: 10 })
           .aspectRatio(1)
@@ -45,7 +45,7 @@ struct Index {
               .fontSize(12)
               .fontColor('#c3c4c5')
             Row({ space: 4 }){
-              Image($r('app.media.ic_public_contacts'))
+              Image($r('app.media.app_icon'))
                 .width(14)
                 .aspectRatio(1)
                 .fillColor('#c3c4c5')
