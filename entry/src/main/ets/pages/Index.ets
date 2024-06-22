@@ -4,13 +4,14 @@
 // import form from './components/Form'
 import Extend from './components/extend'
 import styles from './components/stateStyles'
-import userData from './components/object'
+// import userData from './components/object'
+import render from './components/render'
 @Entry
 @Component
 struct Index {
   build() {
     Column(){
-      userData()
+      render()
     }
 
   }
