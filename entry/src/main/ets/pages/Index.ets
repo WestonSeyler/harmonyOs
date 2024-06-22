@@ -8,7 +8,6 @@ import Extend from './components/extend'
 struct Index {
   build() {
     Column(){
-      // 使用 `Footer` 组件
       Extend()
     }
 

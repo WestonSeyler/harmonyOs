@@ -1,4 +1,4 @@
-@Extend(Text) function myClick(color:string,cb:any){
+@Extend(Text) function myClick(color:string,cb:() => void){
   .backgroundColor(color)
   .width(100)
   .height(50)
