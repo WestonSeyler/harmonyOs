@@ -2,10 +2,11 @@
 struct NavComp{
   build() {
     Row(){
-      
+
     }
   }
 }
+
 
 
 @Entry
