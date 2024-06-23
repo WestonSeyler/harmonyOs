@@ -6,12 +6,14 @@ import Extend from './components/extend'
 import styles from './components/stateStyles'
 // import userData from './components/object'
 import StackExample from './stack/index'
+import Reply from './zhihu/index'
+
 @Entry
 @Component
 struct Index {
   build() {
     Column(){
-      StackExample()
+      Reply()
     }
     .padding({ top: '0vp', right: '0.00vp', bottom: '0.00vp', left: '0.00vp' })
 
