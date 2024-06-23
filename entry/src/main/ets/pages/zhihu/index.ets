@@ -4,8 +4,7 @@ import { promptAction } from '@kit.ArkUI'
 
 @Component
 struct NavComp{
-
-
+  @Prop replyList: ReplyItem[]
   build() {
     Row(){
       Row(){
@@ -24,6 +23,9 @@ struct NavComp{
           .layoutWeight(1)
           .textAlign(TextAlign.Center)
           .padding({ right: 40 })
+          .onClick(()=>{
+            console.log(JSON.stringify(this.replyList))
+          })
       }
       .height(40)
       .border({ width: { bottom: 0.5 }, color: '#e4e4e4' })
@@ -33,6 +35,7 @@ struct NavComp{
     .backgroundColor('#ffffff')
     .border({width:{top:1},color:'#e4e4e4'})
   }
+
 }
 
 
@@ -46,13 +49,17 @@ export default struct Index{
   @State
   replyList: ReplyItem[] = replyList
 
+  show(item:ReplyItem):void{
+
+  }
+
   build() {
     Stack({alignContent:Alignment.Bottom}){
       Column(){
         Scroll(){
           Column(){
-            //导航
-            NavComp()
+            //导航  ans({ replyList: this.replyList })
+            NavComp({ replyList: this.replyList })
             //评论
             ans()
             Column(){
@@ -88,30 +95,7 @@ export default struct Index{
                     }
                     .width('100%')
                     .justifyContent(FlexAlign.SpaceBetween)
-                    .onClick(()=>{
-                      const reply:ReplyItem = {
-                        id:item.id,
-                        avatar:item.avatar,
-                        author:item.author,
-                        content:item.content,
-                        time:item.time,
-                        area:item.area,
-                        likeNum:item.likeNum,
-                        likeFlag:item.likeFlag
-                      }
-                      if (reply.likeFlag) {
-                        reply.likeNum--
-                        reply.likeFlag = false
-                        promptAction.showToast({ message: '取消点赞' })
-                      } else {
-                        reply.likeNum+=1
-                        reply.likeFlag = true
-                        promptAction.showToast({ message: '点赞成功' })
-                      }
-                      const index = this.replyList.findIndex(rep => rep.id === reply.id)
-                      this.replyList[index] = reply
-                      // console.info(item)
-                    })
+                    .onClick(()=>this.show(item))
                   }
                   .layoutWeight(1)
                   .padding({ left: 10 })
