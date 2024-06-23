@@ -11,6 +11,7 @@ function  capsule(){
 @Entry
 @Component
 export default struct styles{
+
   @State
   disabled:boolean=false
 

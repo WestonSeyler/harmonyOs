@@ -14,6 +14,7 @@ class UserData {
   }
 }
 
+
 @Entry
 @Component
 struct Index {
@@ -42,3 +43,6 @@ struct Index {
     .justifyContent(FlexAlign.Center)
   }
 }
+
+const a = 'hello'
+console.log(a);
