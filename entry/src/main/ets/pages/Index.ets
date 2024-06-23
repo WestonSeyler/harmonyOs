@@ -5,14 +5,15 @@
 import Extend from './components/extend'
 import styles from './components/stateStyles'
 // import userData from './components/object'
-import render from './components/render'
+import StackExample from './stack/index'
 @Entry
 @Component
 struct Index {
   build() {
     Column(){
-      render()
+      StackExample()
     }
+    .padding({ top: '0vp', right: '0.00vp', bottom: '0.00vp', left: '0.00vp' })
 
   }
 }
