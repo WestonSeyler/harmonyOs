@@ -49,16 +49,41 @@ export default struct Index{
   @State
   replyList: ReplyItem[] = replyList
 
-  show(item:ReplyItem):void{
+  @State
+  money: number = 0
 
-  }
+  // onLike(item: ReplyItem):void{
+  //   const reply:ReplyItem = {
+  //     id: item.id,
+  //     avatar: item.avatar,
+  //     author: item.author,
+  //     content: item.content,
+  //     time:item.time,
+  //     area: item.area,
+  //     likeNum: item.likeNum,
+  //     likeFlag:item.likeFlag,
+  //   }
+  //   if(reply.likeFlag){
+  //     reply.likeNum--
+  //     reply.likeFlag = false
+  //     promptAction.showToast({ message: '取消点赞' })
+  //   }else{
+  //     reply.likeNum++
+  //     reply.likeFlag = true
+  //     promptAction.showToast({ message: '点赞成功' })
+  //   }
+  //   const index=this.replyList.findIndex(rep=>rep.id==item.id)
+  //   this.replyList[index]=reply
+  //
+  //
+  //
+  // }
 
   build() {
     Stack({alignContent:Alignment.Bottom}){
       Column(){
         Scroll(){
           Column(){
-            //导航  ans({ replyList: this.replyList })
             NavComp({ replyList: this.replyList })
             //评论
             ans()
@@ -95,7 +120,7 @@ export default struct Index{
                     }
                     .width('100%')
                     .justifyContent(FlexAlign.SpaceBetween)
-                    .onClick(()=>this.show(item))
+                    // .onClick(()=>this.onLike(item))
                   }
                   .layoutWeight(1)
                   .padding({ left: 10 })
@@ -116,38 +141,48 @@ export default struct Index{
       }
       .width('100%')
       .height('100%')
-      Row({space:15}){
-        TextInput({placeholder:'回复',text:this.content})
-          .layoutWeight(1)
-          .placeholderColor('#c3c4c5')
-          .layoutWeight(1)
-          .onChange((value) => {
-            this.content = value
-          })
-        Text('发布')
-          .fontColor('#069')
-          .onClick(()=>{
-            const reply: ReplyItem = {
-              id: Math.random(),
-              content: this.content,
-              author: 'Zhousg',
-              avatar: $r('app.media.ic_user_portrait').toString(),
-              time: '12-01',
-              likeNum: 0,
-              area: '北京'
-            }
-            this.replyList.unshift(reply)
-            this.content = ''
-            promptAction.showToast({ message: '回复成功' })
-          })
-      }
-      .padding({ left: 15, right: 15 })
-      .width('100%')
-      .height(50)
-      .backgroundColor('#fff')
-      .border({ width: { top: 0.5 }, color: '#e4e4e4' })
+      CommentComp({content:$content,replyList:$replyList})
     }
   }
 }
 
+
+@Component
+struct  CommentComp{
+  @Link content: string
+  @Link replyList:ReplyItem[]
+  build() {
+    Row({space:15}){
+      TextInput({placeholder:'回复',text:this.content})
+        .layoutWeight(1)
+        .placeholderColor('#c3c4c5')
+        .layoutWeight(1)
+        .onChange((value) => {
+          this.content = value
+        })
+      Text('评论')
+        .fontColor('#069')
+        .onClick(()=>{
+          const reply: ReplyItem = {
+            id: Math.random(),
+            content: this.content,
+            author: 'Zhousg',
+            avatar: $r('app.media.ic_user_portrait').toString(),
+            time: '12-01',
+            likeNum: 0,
+            area: '北京'
+          }
+          this.replyList.unshift(reply)
+          this.content = ''
+          console.log(JSON.stringify(this.replyList))
+          promptAction.showToast({ message: '回复成功' })
+        })
+    }
+    .padding({ left: 15, right: 15 })
+    .width('100%')
+    .height(50)
+    .backgroundColor('#fff')
+    .border({ width: { top: 0.5 }, color: '#e4e4e4' })
+  }
+}
 
