@@ -52,32 +52,32 @@ export default struct Index{
   @State
   money: number = 0
 
-  // onLike(item: ReplyItem):void{
-  //   const reply:ReplyItem = {
-  //     id: item.id,
-  //     avatar: item.avatar,
-  //     author: item.author,
-  //     content: item.content,
-  //     time:item.time,
-  //     area: item.area,
-  //     likeNum: item.likeNum,
-  //     likeFlag:item.likeFlag,
-  //   }
-  //   if(reply.likeFlag){
-  //     reply.likeNum--
-  //     reply.likeFlag = false
-  //     promptAction.showToast({ message: '取消点赞' })
-  //   }else{
-  //     reply.likeNum++
-  //     reply.likeFlag = true
-  //     promptAction.showToast({ message: '点赞成功' })
-  //   }
-  //   const index=this.replyList.findIndex(rep=>rep.id==item.id)
-  //   this.replyList[index]=reply
-  //
-  //
-  //
-  // }
+  onLike(item: ReplyItem):void{
+    const reply:ReplyItem = {
+      id: item.id,
+      avatar: item.avatar,
+      author: item.author,
+      content: item.content,
+      time:item.time,
+      area: item.area,
+      likeNum: item.likeNum,
+      likeFlag:item.likeFlag,
+    }
+    if(reply.likeFlag){
+      reply.likeNum--
+      reply.likeFlag = false
+      promptAction.showToast({ message: '取消点赞' })
+    }else{
+      reply.likeNum++
+      reply.likeFlag = true
+      promptAction.showToast({ message: '点赞成功' })
+    }
+    const index=this.replyList.findIndex(rep=>rep.id==item.id)
+    this.replyList[index]=reply
+
+
+
+  }
 
   build() {
     Stack({alignContent:Alignment.Bottom}){
@@ -120,7 +120,7 @@ export default struct Index{
                     }
                     .width('100%')
                     .justifyContent(FlexAlign.SpaceBetween)
-                    // .onClick(()=>this.onLike(item))
+                    .onClick(()=>this.onLike(item))
                   }
                   .layoutWeight(1)
                   .padding({ left: 10 })
