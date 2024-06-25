@@ -1,17 +1,16 @@
-
 import promptAction from '@ohos.promptAction'
+
 // 组件状态共享
 
-class Person{
-  name:string=''
-  age:number=18
+class Person {
+  name: string = ''
+  age: number = 18
 }
 
 
 @Entry
 @Component
-export default struct parent{
-
+export default struct parent {
   // @Provide
   // money:number=20;
   //
@@ -33,40 +32,42 @@ export default struct parent{
   // }
 
   @State
-  activeIndex:number=20;
-  @State TooTmp: ToolbarItem = {'value': "func",  'action': ()=> {}}
+  activeIndex: number = 20;
+  @State TooTmp: ToolbarItem = {
+    'value': "func", 'action': () => {
+    }
+  }
 
-  onChange(index:number){
-    this.activeIndex=index;
+  onChange(index: number) {
+    this.activeIndex = index;
     // promptAction.showToast({message:'点击'})
   }
 
   build() {
-   Navigation(){
-      Child({activeIndex:this.activeIndex})
-   }
-   .toolbarConfiguration([
-     {'value': "首页",action:()=>this.onChange(0)},
-     {'value': "我的",action:()=>this.onChange(1)}
+    Navigation() {
+      Child ({ activeIndex: this.activeIndex })
+    }
+    .toolbarConfiguration ([
+      { 'value': "首页", action: () => this.onChange (0) },
+      { 'value': "我的", action: () => this.onChange (1) }
 
-   ])
+    ])
   }
-
 }
 
 @Component
-struct Child{
+struct Child {
   @Prop
-  @Watch('onActiveIndex')
-  activeIndex:number
+  @Watch ('onActiveIndex')
+  activeIndex: number
 
   onActiveIndex() {
-    promptAction.showToast({ message: `${this.activeIndex}` })
+    promptAction.showToast ({ message: `${this.activeIndex}` })
   }
 
   build() {
-    Column(){
-      Text('child'+this.activeIndex)
+    Column() {
+      Text ('child' + this.activeIndex)
     }
   }
 }
