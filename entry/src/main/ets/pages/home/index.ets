@@ -17,9 +17,8 @@ export default struct  home{
   ]
 
   @Builder
-  TabBarBuilder(item:ToolBarItem,index:number){
+  TabBarBuilder(item:ToolBarItem){
       Column(){
-        // Text(`${index}`)
         Image(item.defaultIcon)
           .width(20)
           .aspectRatio(1)
@@ -38,7 +37,7 @@ export default struct  home{
           TabContent(){
               Text(index.toString())
           }
-          .tabBar(this.TabBarBuilder(item,index))
+          .tabBar(this.TabBarBuilder(item))
 
       })
     }
