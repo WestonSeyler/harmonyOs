@@ -7,6 +7,7 @@ import styles from './components/stateStyles'
 // import userData from './components/object'
 import StackExample from './stack/index'
 import State from './state/index'
+import home from './home/index'
 // import Reply from './zhihu/index'
 
 @Entry
@@ -14,7 +15,7 @@ import State from './state/index'
 struct Index {
   build() {
     Column(){
-      State()
+      home()
     }
     .padding({ top: '0vp', right: '0.00vp', bottom: '0.00vp', left: '0.00vp' })
 
