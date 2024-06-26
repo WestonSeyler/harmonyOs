@@ -8,7 +8,8 @@ import styles from './components/stateStyles'
 import StackExample from './stack/index'
 import State from './state/index'
 import home from './home/index'
-import Parent from './state/state'
+// import Parent from './state/state'
+import Observer from './state/observe'
 // import Reply from './zhihu/index'
 
 @Entry
@@ -16,7 +17,7 @@ import Parent from './state/state'
 struct Index {
   build() {
     Column(){
-      Parent()
+      Observer()
     }
     .padding({ top: '0vp', right: '0.00vp', bottom: '0.00vp', left: '0.00vp' })
 
