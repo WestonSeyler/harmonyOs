@@ -42,7 +42,7 @@ class BookName extends Bag {
 }
 
 @Component
-struct ViewA {
+ struct ViewA {
   label: string = 'ViewA';
   @ObjectLink bag: Bag;
 
@@ -68,7 +68,7 @@ struct ViewA {
 }
 
 @Component
-struct ViewC {
+ struct ViewC {
   label: string = 'ViewC1';
   @ObjectLink bookName: BookName;
 
@@ -99,7 +99,7 @@ struct ViewC {
 
 @Entry
 @Component
-struct ViewB {
+export default struct ViewB {
   @State user: User = new User(new Bag(0));
   @State child: Book = new Book(new BookName(0));
 
