@@ -1,46 +1,31 @@
+// index.ets
 import router from '@ohos.router';
 
-// import Style from './style/style'
-// import Test from './zhihu/test'
-// import Style from './style/sameStyle'
-// import form from './components/Form'
-import Extend from './components/extend'
-import styles from './components/stateStyles'
-// import userData from './components/object'
-import StackExample from './stack/index'
-import State from './state/index'
-import home from './home/index'
-// import Parent from './state/state'
-// import Observer from './state/observe'
-import storage from "./state/stroage"
+// 通过getShared接口获取stage共享的LocalStorage实例
+let storage = LocalStorage.getShared()
 
-// import Reply from './zhihu/index'
-
-@Entry
+@Entry(storage)
 @Component
 struct Index {
-  build() {
-    Column() {
-      Row() {
-        // storage()
-      }
+  // can access LocalStorage instance using
+  // @LocalStorageLink/Prop decorated variables
+  @LocalStorageLink('PropA') propA: number = 1;
 
-      Row() {
-        Button('jump')
+  build() {
+    Row() {
+      Column() {
+        Text(`${this.propA}`)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+        Button("To Page")
           .onClick(() => {
             router.pushUrl({
               url: 'pages/Page/index'
             })
           })
       }
-
+      .width('100%')
     }
-    .padding({
-      top: '0vp',
-      right: '0.00vp',
-      bottom: '0.00vp',
-      left: '0.00vp'
-    })
-
+    .height('100%')
   }
 }
