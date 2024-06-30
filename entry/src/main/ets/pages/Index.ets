@@ -22,6 +22,8 @@ struct Index {
             router.pushUrl({
               url: 'pages/Page/index'
             })
+            this.propA = 100;
+
           })
       }
       .width('100%')
