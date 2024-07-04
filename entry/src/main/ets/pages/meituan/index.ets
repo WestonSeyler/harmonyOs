@@ -1,27 +1,30 @@
 // import { Cart } from '../components/Cart'
 // import { Footer } from '../components/Footer'
 // import { MenuWrapper } from '../components/MenuWrapper'
-// import { Nav } from '../components/Nav'
+import Nav from './components/Nav'
+import MenuWrapper from './components/MenuWrapper'
+import Card from './components/card'
+import Footer from './components/Footer'
 
 @Entry
 @Component
-struct Index {
+export default struct Index {
 
   @State
-  showCart: boolean = false
+  showCart: boolean = true
 
   build() {
     Stack({ alignContent: Alignment.Bottom }) {
       Column() {
-        // Nav()
-        // MenuWrapper()
+        Nav()
+        MenuWrapper()
       }
       .width('100%')
       .height('100%')
       if (this.showCart) {
-        // Cart()
+        Card()
       }
-      // Footer({ showCart: $showCart })
+      Footer()
     }
   }
 }

@@ -14,6 +14,7 @@ import home from './home/index'
 // import Observer from './state/observe'
 import storage from "./state/stroage"
 import environment from "./Environment/index"
+import Mei from "./meituan/index"
 
 // import Reply from './zhihu/index'
 
@@ -23,7 +24,7 @@ struct Index {
   build() {
     Column() {
       Row() {
-        environment()
+        Mei()
       }
     }
   }
