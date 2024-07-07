@@ -22,7 +22,7 @@ export default struct Index {
       .width('100%')
       .height('100%')
       if (this.showCart) {
-        Card()
+        // Card()
       }
       Footer()
     }
