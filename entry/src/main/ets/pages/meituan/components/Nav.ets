@@ -36,15 +36,17 @@ export default struct Index{
 
       Row(){
         Image($r('app.media.startIcon'))
-          .width(14)
+          .width(20)
           .aspectRatio(1)
           .fillColor('#999')
-        Text('请输入菜品名称')
-          .fontSize(12)
-          .fontColor('#999')
+        TextInput()
+          .flexGrow(1)
+          .height(35) // 设置一个合适的高度
+          .padding({ left: 8, right: 8 }) // 添加内边距，提高可读性
+
       }
       .backgroundColor('#eee')
-      .height(25)
+      .height(20)
       .borderRadius(13)
       .padding({ left: 5, right: 5 })
       .layoutWeight(1)
