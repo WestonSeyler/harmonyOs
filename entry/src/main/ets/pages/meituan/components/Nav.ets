@@ -1,6 +1,6 @@
 
 @Component
-export default struct  Nav{
+export default struct Index{
   @Builder
   NavItem(active:boolean,title:string,subTitle?:string){
     Column(){
